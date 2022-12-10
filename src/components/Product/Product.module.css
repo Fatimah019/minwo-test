@@ -1,0 +1,70 @@
+.product_wrapper:not(:last-child) {
+  margin-bottom: 80px;
+}
+
+.product_thumbnail_section {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.thumbnail {
+  width: 180px;
+  height: 200px;
+  object-fit: contain;
+  background: rgb(211, 225, 211);
+  padding: 20px;
+}
+
+.thumbnail_info label {
+  color: rgb(117, 153, 117);
+  font-weight: 500;
+}
+
+.thumbnail_info p {
+  font-weight: 600;
+}
+
+.thumbnail_info button {
+  background-color: rgb(111, 185, 111);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.products_container {
+  position: relative;
+}
+.product_info {
+  margin-top: 30px;
+}
+
+.product_info tr {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  min-width: 280px;
+  max-width: 100%;
+  margin-bottom: 10px;
+}
+
+.product_description {
+  margin-top: 20px;
+  max-width: 280px;
+}
+
+.product_image_wrapper {
+  display: flex;
+  align-items: flex-end;
+  column-gap: 30px;
+  max-width: fit-content;
+  overflow-x: auto;
+  margin-top: 30px;
+}
+
+.product_image {
+  width: 300px;
+  object-fit: contain;
+}

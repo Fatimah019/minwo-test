@@ -1,0 +1,52 @@
+.tab {
+  background-color: #fff;
+  position: sticky;
+  z-index: 1;
+  top: 0px;
+  padding: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .tab {
+    display: none;
+  }
+}
+
+.tab_pane {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: fit-content;
+  gap: 20px;
+}
+
+.tab_pane li {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  color: rgb(117, 153, 117);
+}
+
+.tab_pane li::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(117, 153, 117);
+  transform-origin: bottom center;
+  transition: transform 0.25s ease-out;
+}
+
+.tab_pane li:hover::after {
+  background-color: rgb(117, 153, 117, 0.5);
+  transform: scaleX(1);
+  transform-origin: bottom center;
+}
+
+.tab_pane .active_tab::after {
+  transform: scaleX(1);
+  transform-origin: bottom center;
+}

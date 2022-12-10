@@ -1,0 +1,14 @@
+.search_wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.products_container {
+  position: relative;
+  padding: 40px;
+}
+
+.heading {
+  font-size: 2rem;
+  text-align: center;
+}
