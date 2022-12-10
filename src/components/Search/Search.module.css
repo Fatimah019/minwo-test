@@ -4,18 +4,25 @@
   padding: 5px 10px;
   border-radius: 4px;
   min-width: 300px;
-  /* display: flex;
+  display: flex;
   justify-content: space-between;
-  gap: 10px; */
+  gap: 10px;
 
   position: relative;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 
 .search_wrapper input {
   box-shadow: 2px black;
   border: none;
   outline: none;
+  width: 100%;
+  background-color: transparent;
+  color: #fff;
+}
+
+.search_wrapper input::placeholder {
+  color: rgb(255, 255, 255, 0.5);
 }
 
 .search_wrapper button {
@@ -23,6 +30,6 @@
   background-color: transparent;
   border: none;
   outline: none;
-  position: absolute;
+  /* position: absolute; */
   right: 10px;
 }

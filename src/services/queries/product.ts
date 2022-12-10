@@ -1,28 +1,20 @@
 import { ProductsContextType } from "../../models/product";
 import { api } from "../api";
 
-const getProducts = async () => {
-  const data = await api.get<ProductsContextType>("products");
-  return data;
+const getProducts = (): Promise<any> => {
+  return api.get<ProductsContextType>("products");
 };
 
-const getProductsCategories = async () => {
-  const data = await api.get<string[]>("products/categories");
-  return data;
+const getProductsCategories = (): Promise<any> => {
+  return api.get<string[]>("products/categories");
 };
 
-const searchProductsByName = async (productName: string) => {
-  const data = await api.get<ProductsContextType>(
-    `products/search?q=${productName}`
-  );
-  return data;
+const searchProductsByName = (productName: string): Promise<any> => {
+  return api.get<ProductsContextType>(`products/search?q=${productName}`);
 };
 
-const filterProductsByCategory = async (productCategory: string) => {
-  const data = await api.get<ProductsContextType>(
-    `products/category/${productCategory}`
-  );
-  return data;
+const filterProductsByCategory = (productCategory: string): Promise<any> => {
+  return api.get<ProductsContextType>(`products/category/${productCategory}`);
 };
 
 export {

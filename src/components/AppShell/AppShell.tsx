@@ -1,11 +1,11 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import { Tabs } from "../Tabs/Tabs";
+import { Header } from "../Header/Header";
 
 const AppShell = () => {
   return (
     <>
-      <Tabs />
+      <Header />
       <Outlet />
     </>
   );

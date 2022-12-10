@@ -10,60 +10,55 @@ import {
 const ProductsContext = createContext<ProductsContextType | null>(null);
 
 const ProductsProvider = ({ children }: { children: ReactElement }) => {
-  const [products, setProducts] = useState<IProduct[]>([]);
+  const [products, setProducts] = useState<IProduct[]>();
   const [isLoading, setIsloading] = useState<boolean>(false);
-  const [isError, setIsError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const search: string = useLocation().search;
   const productSearch = new URLSearchParams(search).get("search");
   const categorySearch = new URLSearchParams(search).get("category");
 
-  const handleSearchProductByName = (productName: string) => {
+  const handleSearchProductByName = async (productName: string) => {
+    setIsloading(true);
     searchProductsByName(productName)
       .then((data) => {
-        if (data.status !== 200) {
-          setIsError(true);
-        }
         setProducts(data.data.products);
+        setIsloading(false);
       })
       .catch(() => {
         setIsloading(false);
+        setErrorMessage("");
       });
   };
 
-  const handleFilterProductByCategory = (category: string) => {
+  const handleFilterProductByCategory = async (category: string) => {
+    setIsloading(true);
     filterProductsByCategory(category)
       .then((data) => {
-        if (data.status !== 200) {
-          setIsError(true);
-        }
         setProducts(data.data.products);
+        setIsloading(false);
       })
       .catch(() => {
         setIsloading(false);
+        setErrorMessage("");
       });
   };
 
   useEffect(() => {
-    // setIsloading(true);
+    setIsloading(true);
     if (productSearch) {
       handleSearchProductByName(productSearch);
-      setIsloading(false);
     } else if (categorySearch) {
       handleFilterProductByCategory(categorySearch);
-      setIsloading(false);
     } else {
       setIsloading(true);
       getProducts()
         .then((data) => {
-          if (data.status !== 200) {
-            setIsError(true);
-            setIsloading(false);
-          }
           setProducts(data.data.products);
           setIsloading(false);
         })
         .catch(() => {
           setIsloading(false);
+          setErrorMessage("");
         });
     }
   }, [categorySearch, productSearch]);
@@ -73,7 +68,7 @@ const ProductsProvider = ({ children }: { children: ReactElement }) => {
       value={{
         products,
         isLoading,
-        isError,
+        errorMessage,
       }}
     >
       {children}

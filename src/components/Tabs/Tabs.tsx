@@ -1,11 +1,22 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { CategoriesContext } from "../../services/context/Categories";
 import styles from "./Tabs.module.css";
 
-const Tabs = React.memo(() => {
-  const categories = useContext(CategoriesContext);
+const categories = [
+  "Smartphones",
+  "laptops",
+  "fragrances",
+  "skincare",
+  "groceries",
+  "furniture",
+  "tops",
+  "sunglasses",
+  "automotive",
+  "motorcycle",
+  "lighting",
+];
 
+const Tabs = React.memo(() => {
   const navigate = useNavigate();
 
   const search: string = useLocation().search;
@@ -21,7 +32,7 @@ const Tabs = React.memo(() => {
   return (
     <div className={styles.tab}>
       <ul className={styles.tab_pane}>
-        {categories?.categories.map((category: string, _idx: string) => {
+        {categories.map((category, _idx) => {
           return (
             <li
               key={_idx}

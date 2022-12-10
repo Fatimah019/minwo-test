@@ -1,0 +1,21 @@
+.header {
+  background-color: rgb(62, 62, 143);
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: linear-gradient(90deg, #ff9900 0%, #ffe600 100%), #ffffff;
+  background: rgb(117, 153, 117);
+}
+
+.header h2 {
+  margin: 0;
+}
+
+.header button {
+  position: relative;
+}

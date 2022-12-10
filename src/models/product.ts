@@ -11,7 +11,7 @@ export interface IProduct {
 }
 
 export type ProductsContextType = {
-  products: IProduct[];
+  products: IProduct[] | undefined;
   isLoading: boolean;
-  isError: boolean;
+  errorMessage: string;
 };

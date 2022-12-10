@@ -4,3 +4,4 @@ export { EmptyProductList } from "./EmptyProductList/EmptyProductList";
 export { Product } from "./Product/Product";
 export { Loader } from "./Loader/Loader";
 export { ProductError } from "./ProductError/ProductError";
+export { Header } from "./Header/Header";

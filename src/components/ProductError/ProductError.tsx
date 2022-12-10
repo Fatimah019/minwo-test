@@ -1,7 +1,9 @@
-import React from "react";
-
-const ProductError = () => {
-  return <div>ProductError</div>;
+const ProductError = ({ message }: { message: string }) => {
+  return (
+    <div>
+      <p>{message}</p>
+    </div>
+  );
 };
 
 export { ProductError };
