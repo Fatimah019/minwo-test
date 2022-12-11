@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Search } from "../Search/Search";
-import { Tabs } from "../Tabs/Tabs";
+import { Categories } from "../Categories/Categories";
 import styles from "./Header.module.css";
 
 const Header = () => {
@@ -23,7 +23,7 @@ const Header = () => {
         ) : (
           <i className="fa fa-angle-down" />
         )}
-        {showCategories && <Tabs />}
+        {showCategories && <Categories />}
       </button>
     </header>
   );

@@ -10,6 +10,7 @@ const Search = () => {
   return (
     <div className={styles.search_wrapper}>
       <input
+        aria-label="search-product"
         type="text"
         placeholder="Search for products, brands and categories..."
         value={searchVal}
@@ -19,6 +20,7 @@ const Search = () => {
       />
       {searchVal.length > 0 && (
         <button
+          data-testid="search-button"
           onClick={() => {
             navigate({
               pathname: window.location.pathname,

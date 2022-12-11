@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import styles from "./Tabs.module.css";
+import styles from "./Categories.module.css";
 
 const categories = [
   "Smartphones",
@@ -15,7 +15,7 @@ const categories = [
   "Lighting",
 ];
 
-const Tabs = () => {
+const Categories = () => {
   const navigate = useNavigate();
 
   const search: string = useLocation().search;
@@ -34,10 +34,11 @@ const Tabs = () => {
         {categories.map((category: string, _idx: any) => {
           return (
             <li
+              data-testid={category}
               key={`${_idx}${category}`}
               id={category}
-              onClick={handleProductFilter}
               className={categorySearch === category ? styles.active_tab : ""}
+              onClick={handleProductFilter}
             >
               {category}
             </li>
@@ -48,4 +49,4 @@ const Tabs = () => {
   );
 };
 
-export { Tabs };
+export { Categories };

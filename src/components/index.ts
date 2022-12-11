@@ -1,5 +1,5 @@
 export { Search } from "./Search/Search";
-export { Tabs } from "./Tabs/Tabs";
+export { Categories } from "./Categories/Categories";
 export { WarningMessage } from "./WarningMessage/WarningMessage";
 export { Product } from "./Product/Product";
 export { Loader } from "./Loader/Loader";
