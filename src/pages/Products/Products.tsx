@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { WarningMessage, Loader, Product } from "../../components";
 import { ProductsContextType } from "../../@types/product";
 import { ProductsContext } from "../../services/context/Products";
@@ -8,11 +8,6 @@ const Products = () => {
   const { products, isLoading, errorMessage } = useContext(
     ProductsContext
   ) as ProductsContextType;
-
-  // useEffect(() => {
-  //   // 👇️ scroll to top on page load
-  //   window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  // }, []);
 
   return (
     <div className={styles.products_container}>
