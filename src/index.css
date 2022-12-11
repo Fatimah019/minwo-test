@@ -5,14 +5,23 @@
 :root {
   --primary-bg-color: rgb(117, 153, 117);
   --secondary-bg-color: rgb(211, 225, 211);
-  --cta-bg-color: rgb(111, 185, 111);
+  --cta-bg-color: rgb(82, 134, 82);
+  --cta-bg-hover-color: rgba(82, 134, 82, 0.8);
   --white: #fff;
   --primary-text-color: rgb(117, 153, 117);
-  --white05: rgb(255, 255, 255, 0.5);
+  --white05: rgba(255, 255, 255, 0.5);
   --shadow: rgba(33, 39, 73, 0.12);
-  --primary-color05: rgb(117, 153, 117, 0.5);
+  --primary-color05: rgba(117, 153, 117, 0.5);
   --error: rgb(220, 55, 55);
   --black: #000;
+  --loader-bg-effect: linear-gradient(
+    to right,
+    #f6f7f8 10%,
+    #edeef1 20%,
+    #f6f7f8 40%,
+    #f6f7f8 100%
+  );
+  --loader-bg-color: #f6f7f8;
 }
 
 html,

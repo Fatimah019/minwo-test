@@ -47,6 +47,10 @@
   margin-top: 16px;
 }
 
+.thumbnail_info button:hover {
+  background-color: var(--cta-bg-hover-color);
+}
+
 .product_info {
   margin-top: 30px;
   width: 100%;
