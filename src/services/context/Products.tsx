@@ -61,6 +61,7 @@ const ProductsProvider = ({ children }: { children: ReactElement }) => {
           setErrorMessage(err);
         });
     }
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }, [categorySearch, productSearch]);
 
   return (
