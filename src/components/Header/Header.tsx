@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Search } from "../Search/Search";
 import { Tabs } from "../Tabs/Tabs";
 import styles from "./Header.module.css";
@@ -9,10 +9,20 @@ const Header = () => {
     <header className={styles.header}>
       <h2>MINWO</h2>
 
-      <Search />
+      <div className={styles.search_section}>
+        <Search />
+      </div>
 
-      <button onClick={() => setShowCategories(!showCategories)}>
+      <button
+        onClick={() => setShowCategories(!showCategories)}
+        className={styles.categories_button}
+      >
         All categories
+        {showCategories ? (
+          <i className="fa fa-angle-up" />
+        ) : (
+          <i className="fa fa-angle-down" />
+        )}
         {showCategories && <Tabs />}
       </button>
     </header>

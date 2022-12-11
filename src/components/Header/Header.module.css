@@ -1,15 +1,19 @@
 .header {
-  background-color: rgb(62, 62, 143);
-  padding: 20px 30px;
+  padding: 20px 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #fff;
+  color: var(--white);
   position: sticky;
-  top: 0;
+  top: 0px;
   z-index: 1;
-  background: linear-gradient(90deg, #ff9900 0%, #ffe600 100%), #ffffff;
-  background: rgb(117, 153, 117);
+  background: var(--primary-bg-color);
+}
+
+.search_section {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .header h2 {
@@ -18,4 +22,36 @@
 
 .header button {
   position: relative;
+}
+
+.categories_button {
+  background-color: transparent;
+  border: none;
+  color: var(--white);
+}
+
+.categories_button i {
+  font-size: 1rem;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .search_section {
+    padding: 20px 60px;
+    margin-top: 90px;
+    width: 100%;
+    background: var(--primary-bg-color);
+  }
+
+  .search_section > div {
+    min-width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .header,
+  .search_section {
+    padding: 20px 20px;
+  }
 }

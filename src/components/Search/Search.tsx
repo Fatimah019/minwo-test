@@ -2,18 +2,16 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import styles from "./Search.module.css";
-const Search = React.memo(() => {
+const Search = () => {
   const [searchVal, setSearchVal] = useState("");
 
   const navigate = useNavigate();
-
-  console.log("search");
 
   return (
     <div className={styles.search_wrapper}>
       <input
         type="text"
-        placeholder="Search..."
+        placeholder="Search for products, brands and categories..."
         value={searchVal}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
           setSearchVal(e.target.value)
@@ -35,6 +33,6 @@ const Search = React.memo(() => {
       )}
     </div>
   );
-});
+};
 
 export { Search };

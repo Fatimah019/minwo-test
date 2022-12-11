@@ -1,0 +1,18 @@
+.warning_message_container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 20px;
+  font-size: 1.25rem;
+  width: 100%;
+}
+
+.warning_message_container .error {
+  color: var(--error);
+}
+
+.warning_message_container .warning {
+  color: var(--black);
+}

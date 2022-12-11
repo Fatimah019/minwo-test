@@ -1,14 +1,15 @@
-.search_wrapper {
-  display: flex;
-  justify-content: center;
-}
-
 .products_container {
   position: relative;
-  padding: 40px;
+  padding: 40px 60px;
+  min-height: calc(100vh - 72px);
 }
 
 .heading {
   font-size: 2rem;
-  text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  .products_container {
+    padding: 30px 20px;
+  }
 }

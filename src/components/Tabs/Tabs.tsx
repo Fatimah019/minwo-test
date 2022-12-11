@@ -1,22 +1,21 @@
-import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./Tabs.module.css";
 
 const categories = [
   "Smartphones",
-  "laptops",
-  "fragrances",
-  "skincare",
-  "groceries",
-  "furniture",
-  "tops",
-  "sunglasses",
-  "automotive",
-  "motorcycle",
-  "lighting",
+  "Laptops",
+  "Fragrances",
+  "Skincare",
+  "Groceries",
+  "Furniture",
+  "Tops",
+  "Sunglasses",
+  "Automotive",
+  "Motorcycle",
+  "Lighting",
 ];
 
-const Tabs = React.memo(() => {
+const Tabs = () => {
   const navigate = useNavigate();
 
   const search: string = useLocation().search;
@@ -32,10 +31,10 @@ const Tabs = React.memo(() => {
   return (
     <div className={styles.tab}>
       <ul className={styles.tab_pane}>
-        {categories.map((category, _idx) => {
+        {categories.map((category: string, _idx: any) => {
           return (
             <li
-              key={_idx}
+              key={`${_idx}${category}`}
               id={category}
               onClick={handleProductFilter}
               className={categorySearch === category ? styles.active_tab : ""}
@@ -47,6 +46,6 @@ const Tabs = React.memo(() => {
       </ul>
     </div>
   );
-});
+};
 
 export { Tabs };

@@ -1,4 +1,4 @@
-import { ProductsContextType } from "../../models/product";
+import { ProductsContextType } from "../../@types/product";
 import { api } from "../api";
 
 const getProducts = (): Promise<any> => {

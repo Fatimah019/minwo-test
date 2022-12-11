@@ -1,7 +1,7 @@
 export { Search } from "./Search/Search";
 export { Tabs } from "./Tabs/Tabs";
-export { EmptyProductList } from "./EmptyProductList/EmptyProductList";
+export { WarningMessage } from "./WarningMessage/WarningMessage";
 export { Product } from "./Product/Product";
 export { Loader } from "./Loader/Loader";
-export { ProductError } from "./ProductError/ProductError";
 export { Header } from "./Header/Header";
+export { AppShell } from "./AppShell/AppShell";

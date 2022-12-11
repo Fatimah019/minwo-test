@@ -2,11 +2,25 @@
   box-sizing: border-box;
 }
 
+:root {
+  --primary-bg-color: rgb(117, 153, 117);
+  --secondary-bg-color: rgb(211, 225, 211);
+  --cta-bg-color: rgb(111, 185, 111);
+  --white: #fff;
+  --primary-text-color: rgb(117, 153, 117);
+  --white05: rgb(255, 255, 255, 0.5);
+  --shadow: rgba(33, 39, 73, 0.12);
+  --primary-color05: rgb(117, 153, 117, 0.5);
+  --error: rgb(220, 55, 55);
+  --black: #000;
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
   font-family: "Heebo", sans-serif;
+  font-size: 1rem;
 }
 
 ul {

@@ -1,6 +1,6 @@
 import { createContext, ReactElement, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { IProduct, ProductsContextType } from "../../models/product";
+import { IProduct, ProductsContextType } from "../../@types/product";
 import {
   filterProductsByCategory,
   getProducts,
@@ -13,38 +13,38 @@ const ProductsProvider = ({ children }: { children: ReactElement }) => {
   const [products, setProducts] = useState<IProduct[]>();
   const [isLoading, setIsloading] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState("");
+
   const search: string = useLocation().search;
   const productSearch = new URLSearchParams(search).get("search");
   const categorySearch = new URLSearchParams(search).get("category");
 
   const handleSearchProductByName = async (productName: string) => {
     setIsloading(true);
-    searchProductsByName(productName)
+    await searchProductsByName(productName)
       .then((data) => {
         setProducts(data.data.products);
         setIsloading(false);
       })
-      .catch(() => {
+      .catch((err) => {
         setIsloading(false);
-        setErrorMessage("");
+        setErrorMessage(err);
       });
   };
 
   const handleFilterProductByCategory = async (category: string) => {
     setIsloading(true);
-    filterProductsByCategory(category)
+    await filterProductsByCategory(category)
       .then((data) => {
         setProducts(data.data.products);
         setIsloading(false);
       })
-      .catch(() => {
+      .catch((err) => {
         setIsloading(false);
-        setErrorMessage("");
+        setErrorMessage(err);
       });
   };
 
   useEffect(() => {
-    setIsloading(true);
     if (productSearch) {
       handleSearchProductByName(productSearch);
     } else if (categorySearch) {
@@ -56,9 +56,9 @@ const ProductsProvider = ({ children }: { children: ReactElement }) => {
           setProducts(data.data.products);
           setIsloading(false);
         })
-        .catch(() => {
+        .catch((err) => {
           setIsloading(false);
-          setErrorMessage("");
+          setErrorMessage(err);
         });
     }
   }, [categorySearch, productSearch]);

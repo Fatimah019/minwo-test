@@ -1,28 +1,23 @@
-import React, { useContext } from "react";
-import {
-  EmptyProductList,
-  Loader,
-  Product,
-  ProductError,
-  Search,
-} from "../../components";
-import { ProductsContextType } from "../../models/product";
+import { useContext } from "react";
+import { WarningMessage, Loader, Product } from "../../components";
+import { ProductsContextType } from "../../@types/product";
 import { ProductsContext } from "../../services/context/Products";
 import styles from "./Products.module.css";
 
-const Products = React.memo(() => {
+const Products = () => {
   const { products, isLoading, errorMessage } = useContext(
     ProductsContext
   ) as ProductsContextType;
 
   return (
     <div className={styles.products_container}>
-      <ProductError message={errorMessage} />
+      <h1 className={styles.heading}>Products</h1>
+      <WarningMessage message={errorMessage} />
 
       {isLoading && <Loader />}
 
       {!isLoading && products && products.length === 0 ? (
-        <EmptyProductList />
+        <WarningMessage message="No Product Found" />
       ) : (
         !isLoading &&
         products?.map((product, _idx) => {
@@ -44,6 +39,6 @@ const Products = React.memo(() => {
       )}
     </div>
   );
-});
+};
 
 export { Products };

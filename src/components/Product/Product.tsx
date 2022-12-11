@@ -1,4 +1,5 @@
-import { IProduct } from "../../models/product";
+import { useState } from "react";
+import { IProduct } from "../../@types/product";
 import styles from "./Product.module.css";
 
 const Product = ({
@@ -12,14 +13,24 @@ const Product = ({
   images,
   price,
 }: IProduct) => {
+  const [productImageIndex, setProductImageIndex] = useState(0);
+
+  const getNextImage = () => {
+    setProductImageIndex((newValue) => newValue + 1);
+  };
+
+  const getPreviousImage = () => {
+    setProductImageIndex((newValue) => newValue - 1);
+  };
+
   return (
     <div className={styles.product_wrapper}>
-      <div>
+      <div className={styles.left_product_wrapper}>
         <div className={styles.product_thumbnail_section}>
           <img src={thumbnail} alt="thumbnail" className={styles.thumbnail} />
           <div className={styles.thumbnail_info}>
             <label>{category.toUpperCase()}</label>
-            <p>{title}</p>
+            <p className={styles.thumbnail_title}>{title}</p>
             <button>Buy for ${price}</button>
           </div>
         </div>
@@ -45,22 +56,30 @@ const Product = ({
       </div>
 
       <div className={styles.product_image_wrapper}>
+        {images.length > 1 && (
+          <button
+            onClick={getPreviousImage}
+            disabled={productImageIndex === 0}
+            className={styles.angle_bracket}
+          >
+            &#x276E;
+          </button>
+        )}
+
         <img
-          src={images[0]}
-          //   key={index}
+          src={images[productImageIndex]}
           alt="products"
           className={styles.product_image}
         />
-        {/* {images.map((item, index) => {
-          return (
-            <img
-              src={item}
-              key={index}
-              alt="products"
-              className={styles.product_image}
-            />
-          );
-        })} */}
+        {images.length > 1 && (
+          <button
+            onClick={getNextImage}
+            disabled={productImageIndex === images.length - 1}
+            className={styles.angle_bracket}
+          >
+            &#x276F;
+          </button>
+        )}
       </div>
     </div>
   );
